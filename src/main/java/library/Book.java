@@ -1,6 +1,8 @@
 package library;
 
-public class Book {
+import java.util.HashSet;
+
+public class Book extends HashSet<Book> {
 
     private String author;
     private String title;

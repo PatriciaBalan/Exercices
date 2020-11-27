@@ -1,8 +1,10 @@
 package library;
 
 import java.util.HashMap;
-import java.util.Map;
+import java.util.HashSet;
 import java.util.Set;
+
+import static library.Genre.*;
 
 public class TestMain {
 
@@ -12,13 +14,15 @@ public class TestMain {
 
         System.out.println(initWithDefaultValues());
 
-        System.out.println(getBookByGenre(genre = Genre.HORROR));
+        genre = HORROR;
+        getBookByGenre(initWithDefaultValues().get(genre));
+
     }
 
 
-    public static Map<Genre, Book> initWithDefaultValues() {
+    public static HashMap<Genre, HashSet<Book>> initWithDefaultValues() {
 
-        Map<Genre, Book> listOfBooks = new HashMap<Genre, Book>();
+        HashMap<Genre, HashSet<Book>> listOfBooks = new HashMap<Genre, HashSet<Book>>();
 
         Book book1 = new Book("HR", "Jungle library.Book", 1991);
         Book book2 = new Book("JR", "Eating library.Book", 2020);
@@ -26,29 +30,30 @@ public class TestMain {
         Book book4 = new Book("OP", "Wedding", 2018);
         Book book5 = new Book("BP", "Sunshine", 1881);
 
-        listOfBooks.put(Genre.ACTION, book1);
-        listOfBooks.put(Genre.THRILLER, book2);
-        listOfBooks.put(Genre.HORROR, book3);
-        listOfBooks.put(Genre.COMEDY, book4);
-        listOfBooks.put(Genre.HORROR, book5);
+        listOfBooks.put(ACTION, book1);
+        listOfBooks.put(THRILLER, book2);
+        listOfBooks.put(HORROR, book3);
+        listOfBooks.put(COMEDY, book4);
+        listOfBooks.put(HORROR, book5);
 
         return listOfBooks;
     }
 
-    public static Set<Book>[] getBookByGenre(Genre genre) {
+//    public static Set<Book> getBookByGenre(Genre genre) {
+//
+//        Set<Book> listOfBooks = new HashSet<Book>();
+//
+//        for (Set<Book> books : listOfBooks) {
+//            if (initWithDefaultValues().get(Genre.values()); //Genre.values().equals(genre))) {    //(Genre.values().equals(genre))){
+//                return listOfBooks;
+//            }
+//        }
+//        return null;
+//    }
 
-        Set<Book>[] listOfBooks = new Set<Book>;
-        int book = 0;
-
-        for (Set<Book> books : listOfBooks) {
-            if (initWithDefaultValues().containsKey(Genre.values().equals(genre))) {    //(Genre.values().equals(genre))){
-
-
-                book++;
-                return listOfBooks;
-            }
-            // }
-            return null;
+    public static void getBookByGenre (Set<Book> books) {
+        for (Set<Book> book:initWithDefaultValues().get(genre)) {
+            System.out.println(books);
         }
     }
 }
